@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[perl-warning-Setting-locale-failed解决方法]]></title>
+      <url>/2017/08/11/perl-warning-Setting-locale-failed%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h3 id="今天在ubuntu服务器上屏幕出现了警告"><a href="#今天在ubuntu服务器上屏幕出现了警告" class="headerlink" title="今天在ubuntu服务器上屏幕出现了警告"></a>今天在ubuntu服务器上屏幕出现了警告</h3><p><code>perl: warning: Setting locale failed.</code><br><code>perl: warning: Please check that your locale settings:</code><br> <code>LANGUAGE = &quot;en_HK:en&quot;,</code><br> <code>LC_ALL = (unset),</code><br> <code>LC_PAPER = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_ADDRESS = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_MONETARY = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_NUMERIC = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_TELEPHONE = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_IDENTIFICATION = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_MEASUREMENT = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_TIME = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LC_NAME = &quot;zh_CN.UTF-8&quot;,</code><br> <code>LANG = &quot;en_HK.UTF-8&quot;</code><br><code>are supported and installed on your system.</code><br><code>perl: warning: Falling back to a fallback locale (&quot;en_HK.UTF-8&quot;).</code><br><code>locale: Cannot set LC_ALL to default locale: No such file or directory</code></p>
+<h3 id="意思是区域设置失败"><a href="#意思是区域设置失败" class="headerlink" title="意思是区域设置失败"></a>意思是区域设置失败</h3><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="首先列出用户的当前区域设置"><a href="#首先列出用户的当前区域设置" class="headerlink" title="首先列出用户的当前区域设置"></a>首先列出用户的当前区域设置</h3><p><code>$ locale</code><br><code>LANG=en_HK.UTF-8</code><br><code>LANGUAGE=en_HK:en</code><br><code>LC_CTYPE=&quot;en_HK.UTF-8&quot;</code><br><code>LC_NUMERIC=zh_CN.UTF-8</code><br><code>LC_TIME=zh_CN.UTF-8</code><br><code>LC_COLLATE=&quot;en_HK.UTF-8&quot;</code><br><code>LC_MONETARY=zh_CN.UTF-8</code><br><code>LC_MESSAGES=&quot;en_HK.UTF-8&quot;</code><br><code>LC_PAPER=zh_CN.UTF-8</code><br><code>LC_NAME=zh_CN.UTF-8</code><br><code>LC_ADDRESS=zh_CN.UTF-8</code><br><code>LC_TELEPHONE=zh_CN.UTF-8</code><br><code>LC_MEASUREMENT=zh_CN.UTF-8</code><br><code>LC_IDENTIFICATION=zh_CN.UTF-8</code><br><code>LC_ALL=</code></p>
+<h3 id="生成这些语言环境"><a href="#生成这些语言环境" class="headerlink" title="生成这些语言环境"></a>生成这些语言环境</h3><p><code>$ sudo locale-gen &quot;en_HK.UTF-8&quot;</code><br><code>Generating locales...</code><br> <code>en_HK.UTF-8... up-to-date</code><br><code>Generation complete.</code></p>
+<h3 id="最后重新配置区域设置。"><a href="#最后重新配置区域设置。" class="headerlink" title="最后重新配置区域设置。"></a>最后重新配置区域设置。</h3><p><code>$ sudo dpkg-reconfigure locales</code><br><code>Generating locales...</code><br> <code>en_HK.UTF-8... done</code><br><code>en_US.UTF-8... done</code><br> <code>zh_CN.UTF-8... up-to-date</code><br><code>Generation complete.</code></p>
+<p><a href="https://www.linuxbabe.com/linux-server/how-to-solve-perl-warning-setting-locale-failed" target="_blank" rel="external">参考</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>/2017/06/05/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+  
+  
+</search>
